@@ -1,0 +1,123 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-6">Formulário de Cadastro</h1>
+        <form id="cadastroForm">
+            <!-- Seção 1: Informações Pessoais -->
+            <fieldset class="mb-6">
+                <legend class="text-xl font-semibold mb-4">Informações Pessoais</legend>
+                <div class="mb-4">
+                    <label for="nomeCompleto" class="block text-sm font-medium text-gray-700 required">Nome Completo:</label>
+                    <input type="text" id="nomeCompleto" name="nomeCompleto" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="nomeError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="dataNascimento" class="block text-sm font-medium text-gray-700 required">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento" name="dataNascimento" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="dataError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="cpf" class="block text-sm font-medium text-gray-700 required">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="cpfError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="telefoneFixo" class="block text-sm font-medium text-gray-700 required">Telefone Fixo:</label>
+                    <input type="text" id="telefoneFixo" name="telefoneFixo" placeholder="(XX) XXXX-XXXX" required pattern="\(\d{2}\) \d{4}-\d{4}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">                    <span class="error-message text-red-500 text-xs mt-1" id="telefoneFixoError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="celular" class="block text-sm font-medium text-gray-700 required">Celular:</label>
+                    <input type="text" id="celular" name="celular" placeholder="(XX) 9XXXX-XXXX" required pattern="\(\d{2}\) 9\d{4}-\d{4}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="celularError"></span>
+                </div>
+            </fieldset>
+
+            <!-- Seção 2: Informações Complementares (para menores de idade) -->
+            <fieldset id="menoresIdadeSection" class="mb-6 hidden">
+                <legend class="text-xl font-semibold mb-4">Informações Complementares (para menores de idade)</legend>
+                <div class="mb-4">
+                    <label for="nomePai" class="block text-sm font-medium text-gray-700 required">Nome do Pai:</label>
+                    <input type="text" id="nomePai" name="nomePai" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="nomePaiError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="nomeMae" class="block text-sm font-medium text-gray-700 required">Nome da Mãe:</label>
+                    <input type="text" id="nomeMae" name="nomeMae" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="nomeMaeError"></span>
+                </div>
+            </fieldset>
+
+            <!-- Seção 3: Endereço -->
+            <fieldset class="mb-6">
+                <legend class="text-xl font-semibold mb-4">Endereço</legend>
+                <div class="mb-4">
+                    <label for="cep" class="block text-sm font-medium text-gray-700 required">CEP:</label>
+                    <input type="text" id="cep" name="cep" placeholder="XXXXX-XXX" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="cepError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="endereco" class="block text-sm font-medium text-gray-700 required">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="enderecoError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="numero" class="block text-sm font-medium text-gray-700 required">Número:</label>
+                    <input type="text" id="numero" name="numero" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="numeroError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="complemento" class="block text-sm font-medium text-gray-700">Complemento (opcional):</label>
+                    <input type="text" id="complemento" name="complemento" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="cidade" class="block text-sm font-medium text-gray-700 required">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="cidadeError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="estado" class="block text-sm font-medium text-gray-700 required">Estado:</label>
+                    <input type="text" id="estado" name="estado" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="estadoError"></span>
+                </div>
+            </fieldset>
+
+            <!-- Seção 4: Informações da Conta -->
+            <fieldset class="mb-6">
+                <legend class="text-xl font-semibold mb-4">Informações da Conta</legend>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 required">Email:</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="emailError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="senha" class="block text-sm font-medium text-gray-700 required">Senha:</label>
+                    <input type="password" id="senha" name="senha" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="senhaError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="confirmarSenha" class="block text-sm font-medium text-gray-700 required">Confirmar Senha:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <span class="error-message text-red-500 text-xs mt-1" id="confirmarSenhaError"></span>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Cadastrar</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
