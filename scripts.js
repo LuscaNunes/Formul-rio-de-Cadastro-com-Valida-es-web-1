@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             menoresIdadeSection.style.display = "block";
             document.getElementById("nomePai").required = true;
             document.getElementById("nomeMae").required = true;
+            
         } else {
             menoresIdadeSection.style.display = "none";
             document.getElementById("nomePai").required = false;
